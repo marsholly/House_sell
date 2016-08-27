@@ -8,7 +8,7 @@ const API = {
       .then(ServerActions.receiveHouses)
       .catch(console.error);
   },
-  createHouse(person) {
+  createHouse(house) {
     axios.post('/api/houses', house)
       .then(res => res.data)
       .then(ServerActions.receiveOneHouse)
@@ -31,7 +31,7 @@ const API = {
     .then(this.getAllHouses())
   },
 
-  
+
   getAllAnimals(){
     axios.get('/api/animals')
       .then(res => res.data)

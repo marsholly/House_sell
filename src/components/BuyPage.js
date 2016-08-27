@@ -3,7 +3,7 @@ import HouseStore from '../stores/HouseStore';
 import ListHouse from './ListHouse';
 import BuyerActions from '../actions/BuyerActions';
 import { Link } from 'react-router';
-import SearchPage from './SearchPage';
+// import SearchPage from './SearchPage';
 
 // import NewBuyForm from './NewBuyForm';
 // import GetAllBuys from './GetAllBuys';
@@ -60,7 +60,7 @@ export default class BuyPage extends Component {
                 <div className="form-group">
                   <input type="text" className="form-control" placeholder="Pleasanton, CA"/>
                 </div>
-                <button type="submit" className="btn btn-default"><Link to="buy/Search">Search</Link></button>
+                <button type="submit" className="btn btn-default"><Link to="search">Search</Link></button>
               </form>
               <ul className="nav navbar-nav">
                 <li className="dropdown">

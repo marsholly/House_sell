@@ -19,7 +19,7 @@ export default class Main extends Component {
               <ul className="nav navbar-nav navbar-right">
                 <li><Link to='/'>HOME</Link></li>
                 <li><Link to='/buy'>BUY</Link></li>
-                <li><Link to='/sell'>SELL</Link></li>
+                <li><Link to='/housesell'>SELL</Link></li>
               </ul>
             </div>
           </div>
