@@ -16,6 +16,9 @@ const BuyerActions = {
   },
   lookupPrice(low, high){
     API.lookupPrice(low, high);
+  },
+  lookupBedroom(low, high){
+    API.lookupBedroom(low, high);
   }
 }
 

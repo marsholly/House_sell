@@ -39,7 +39,6 @@ export default class BuyPage extends Component {
     })
 
     return (
-      <div>
         <div className="container">
           <table className="table table-striped">
             <thead>
@@ -48,8 +47,8 @@ export default class BuyPage extends Component {
                 <th>Address</th>
                 <th>Zipcode</th>
                 <th>Sqft</th>
-                <th>Bedroom</th>
-                <th>Bathroom</th>
+                <th>Beds</th>
+                <th>Baths</th>
                 <th>Price</th>
                 <th>Order</th>
               </tr>
@@ -59,7 +58,6 @@ export default class BuyPage extends Component {
             </tbody>
           </table>
       </div>
-    </div>
     )
   }
 }

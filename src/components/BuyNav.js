@@ -13,6 +13,7 @@ export default class Main extends Component {
 
     this.goToSearch = this.goToSearch.bind(this);
     this.price = this.price.bind(this);
+    this.bedroom = this.bedroom.bind(this);
   }
 
   goToSearch(e) {
@@ -22,6 +23,11 @@ export default class Main extends Component {
   }
   price(low, high){
     BuyerActions.lookupPrice(low, high);
+    browserHistory.push('/buy/search');
+  }
+
+  bedroom(low, high){
+    BuyerActions.lookupBedroom(low, high);
     browserHistory.push('/buy/search');
   }
 
@@ -50,12 +56,12 @@ export default class Main extends Component {
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Price <span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li onClick={()=>this.price(0, 2000000)}><a>less than 2000K</a></li>
-                    <li onClick={()=>this.price(2000001,3000000)}><a>2001K-3000K</a></li>
-                    <li onClick={()=>this.price(3000001,4000000)}><a>3001K-4000K</a></li>
-                    <li onClick={()=>this.price(4000001,5000000)}><a>4001K-5000K</a></li>
-                    <li onClick={()=>this.price(5000001,6000000)}><a>5001K-6000K</a></li>
-                    <li onClick={()=>this.price(6000001,100000000000)}><a>more than 600k</a></li>
+                    <li onClick={()=>this.price(0, 200000)}><a>less than 200K</a></li>
+                    <li onClick={()=>this.price(200001,300000)}><a>201K-300K</a></li>
+                    <li onClick={()=>this.price(300001,400000)}><a>301K-400K</a></li>
+                    <li onClick={()=>this.price(400001,500000)}><a>401K-500K</a></li>
+                    <li onClick={()=>this.price(500001,600000)}><a>501K-600K</a></li>
+                    <li onClick={()=>this.price(600001,100000000000)}><a>more than 600k</a></li>
                   </ul>
                 </li>
               </ul>
@@ -63,12 +69,12 @@ export default class Main extends Component {
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bedroom<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><Link to="">less than 3</Link></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">more than 6</a></li>
+                    <li onClick={()=>this.bedroom(0, 2)}><a>less than 3</a></li>
+                    <li onClick={()=>this.bedroom(3, 3)}><a>3</a></li>
+                    <li onClick={()=>this.bedroom(4, 4)}><a>4</a></li>
+                    <li onClick={()=>this.bedroom(5, 5)}><a>5</a></li>
+                    <li onClick={()=>this.bedroom(6, 6)}><a>6</a></li>
+                    <li onClick={()=>this.bedroom(7, 100)}><a href="#">more than 6</a></li>
                   </ul>
                 </li>
                 <li><Link to="/buy/allHouse">All</Link></li>

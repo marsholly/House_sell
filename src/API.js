@@ -26,6 +26,12 @@ const API = {
       .then(ServerActions.receiveHouses)
       .catch(console.error);
   },
+  lookupBedroom(low, high){
+    axios.get(`/api/houses/lookup/bed/${low}/${high}`)
+      .then(res => res.data)
+      .then(ServerActions.receiveHouses)
+      .catch(console.error);
+  },
   editHouse(id, house){
     axios.put(`/api/houses/${id}`, house)
       .then(res => res.data)

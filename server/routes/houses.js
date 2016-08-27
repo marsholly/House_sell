@@ -65,7 +65,16 @@ router.route('/lookup/:zipcode')
 router.route('/lookup/price/:low/:high')
   .get((req, res) => {
     House.find({price: {$gte: req.params.low, $lte: req.params.high}}, (err, houses)=>{
-      console.log(req.params.low, req.params.high)
+      if(err|| !houses){
+        return res.status(400).send(err || 'House not found');
+      }
+      res.send(houses);
+    });
+  })
+
+router.route('/lookup/bed/:low/:high')
+  .get((req, res) => {
+    House.find({beds: {$gte: req.params.low, $lte: req.params.high}}, (err, houses)=>{
       if(err|| !houses){
         return res.status(400).send(err || 'House not found');
       }
