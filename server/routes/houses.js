@@ -58,6 +58,22 @@ router.route('/lookup/:zipcode')
     });
   })
 
+//$gte 'great than or equal to'
+// $gt 'greater than'
+// $lt 'less than'
+
+router.route('/lookup/price/:low/:high')
+  .get((req, res) => {
+    House.find({price: {$gte: req.params.low, $lte: req.params.high}}, (err, houses)=>{
+      console.log(req.params.low, req.params.high)
+      if(err|| !houses){
+        return res.status(400).send(err || 'House not found');
+      }
+      res.send(houses);
+    });
+  })
+
+
 router.put('/:houseId/addOwner/:ownerId', (req, res)=>{
   House.findById(req.params.houseId, (err, house)=>{
     if(err || !house){
@@ -72,6 +88,7 @@ router.put('/:houseId/addOwner/:ownerId', (req, res)=>{
     });
   });
 });
+
 
 
 

@@ -20,6 +20,12 @@ const API = {
       .then(ServerActions.receiveHouses)
       .catch(console.error);
   },
+  lookupPrice(low, high){
+    axios.get(`/api/houses/lookup/price/${low}/${high}`)
+      .then(res => res.data)
+      .then(ServerActions.receiveHouses)
+      .catch(console.error);
+  },
   editHouse(id, house){
     axios.put(`/api/houses/${id}`, house)
       .then(res => res.data)

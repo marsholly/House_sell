@@ -12,15 +12,18 @@ export default class Main extends Component {
     }
 
     this.goToSearch = this.goToSearch.bind(this);
+    this.price = this.price.bind(this);
   }
 
   goToSearch(e) {
-    console.log('goToSearch', Date.now())
     e.preventDefault();
     BuyerActions.lookup(this.state.zipcode);
     browserHistory.push('/buy/search');
   }
-
+  price(low, high){
+    BuyerActions.lookupPrice(low, high);
+    browserHistory.push('/buy/search');
+  }
 
   render() {
     let url = '/buy/search/' + this.state.zipcode;
@@ -47,10 +50,12 @@ export default class Main extends Component {
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Price <span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="#">200k-300k</a></li>
-                    <li><a href="#">301k-400k</a></li>
-                    <li><a href="#">401k-500k</a></li>
-                    <li><a href="#">501k-600k</a></li>
+                    <li onClick={()=>this.price(0, 2000000)}><a>less than 2000K</a></li>
+                    <li onClick={()=>this.price(2000001,3000000)}><a>2001K-3000K</a></li>
+                    <li onClick={()=>this.price(3000001,4000000)}><a>3001K-4000K</a></li>
+                    <li onClick={()=>this.price(4000001,5000000)}><a>4001K-5000K</a></li>
+                    <li onClick={()=>this.price(5000001,6000000)}><a>5001K-6000K</a></li>
+                    <li onClick={()=>this.price(6000001,100000000000)}><a>more than 600k</a></li>
                   </ul>
                 </li>
               </ul>
@@ -58,10 +63,12 @@ export default class Main extends Component {
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bedroom<span className="caret"></span></a>
                   <ul className="dropdown-menu">
+                    <li><Link to="">less than 3</Link></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
                     <li><a href="#">6</a></li>
+                    <li><a href="#">more than 6</a></li>
                   </ul>
                 </li>
                 <li><Link to="/buy/allHouse">All</Link></li>

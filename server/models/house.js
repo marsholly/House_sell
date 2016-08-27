@@ -5,7 +5,7 @@ const houseSchema = new mongoose.Schema({
   sqft:{type: Number, required: true},
   beds:{type: Number, required: true},
   baths:{type: Number, required: true},
-  price:{type: String, required: true},
+  price:{type: Number, required: true},
   picture:{type: String, required: true},
   zipcode:{type: Number, required: true},
   buyer:{ type: mongoose.Schema.Types.ObjectId, ref: 'Person' }

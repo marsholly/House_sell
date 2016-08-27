@@ -20,7 +20,6 @@ render(
     </Route>
     <Route path='sell' component={SellNav}>
       <Route path='housesell' component={HouseSell}></Route>
-
     </Route>
     </Route>
 
@@ -29,5 +28,4 @@ render(
 );
 
 
-// <Route path='seachClient' component={SearchClient}></Route>
-// <Route path='animals' component={AnimalsPage}></Route>
+// <Route path='price' component={PricePage}></Route>

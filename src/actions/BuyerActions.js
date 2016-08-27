@@ -14,6 +14,9 @@ const BuyerActions = {
   lookup(zipcode){
     API.lookup(zipcode);
   },
+  lookupPrice(low, high){
+    API.lookupPrice(low, high);
+  }
 }
 
 export default BuyerActions;
