@@ -9,11 +9,11 @@ export default class ListHouse extends Component {
 
   }
   render() {
-    let { _id, address, sqft, beds, baths, picture, price, location }  = this.props;
+    let { _id, address, sqft, beds, baths, picture, price, zipcode }  = this.props;
     return(
       <tr className='trFont'>
         <td><img src={picture} width="300 px" alt="No Image"/></td>
-        <td>{address}<br/>{location}</td>
+        <td>{address},{zipcode}</td>
         <td>{sqft}</td>
         <td>{beds}</td>
         <td>{baths}</td>

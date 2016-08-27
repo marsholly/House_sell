@@ -13,12 +13,6 @@ const ServerActions = {
       house
     })
   },
-  receiveLookupHouses(house){
-    AppDispatcher.dispatch({
-      type: 'RECEIVE_LOOKUP_HOUSES',
-      person
-    })
-  },
   receiveAnimals(animals) {
     AppDispatcher.dispatch({
       type: 'RECEIVE_ANIMALS',

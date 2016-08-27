@@ -14,12 +14,13 @@ const API = {
       .then(ServerActions.receiveOneHouse)
       .catch(console.error);
   },
-  // lookup(email){
-  //   axios.get(`/api/houses/email/${email}`)
-  //     .then(res => res.data)
-  //     .then(ServerActions.receiveLookupPeople)
-  //     .catch(console.error);
-  // },
+  lookup(zipcode){
+    // console.log('zipcode:', zipcode)
+    axios.get(`/api/houses/lookup/${zipcode}`)
+      .then(res => res.data)
+      .then(ServerActions.receiveHouses)
+      .catch(console.error);
+  },
   editHouse(id, house){
     axios.put(`/api/houses/${id}`, house)
       .then(res => res.data)

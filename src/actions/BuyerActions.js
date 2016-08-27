@@ -10,7 +10,10 @@ const BuyerActions = {
   },
   deleteHouse(id){
     API.deleteHouse(id);
-  }
+  },
+  lookup(zipcode){
+    API.lookup(zipcode);
+  },
 }
 
 export default BuyerActions;

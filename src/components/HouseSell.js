@@ -11,7 +11,7 @@ export default class HouseSell extends Component{
       baths:'',
       beds:'',
       price:'',
-      location:'',
+      zipcode:'',
       picture:''
     }
     this.submitHouse=this.submitHouse.bind(this);
@@ -23,7 +23,7 @@ export default class HouseSell extends Component{
                     baths:'',
                     beds:'',
                     price:'',
-                    location:'',
+                    zipcode:'',
                     picture:''});
   }
 
@@ -37,7 +37,7 @@ export default class HouseSell extends Component{
       baths:this.state.baths,
       beds:this.state.beds,
       price:this.state.price,
-      location:this.state.location,
+      zipcode:this.state.zipcode,
       picture:this.state.picture
     }
     console.log(house,{house});
@@ -50,6 +50,7 @@ export default class HouseSell extends Component{
      let {house}= this.state;
     return (
       <div className ="maindiv">
+          <h2 className="text-center">Sell  <img width="60px"  src="http://downloadicons.net/sites/default/files/little-house-icon-90234.png"/></h2>
         <form  className ="formStyle" onSubmit={this.submitHouse}>
           <div className="container form-group ">
             <input type="text" value = {this.state.picture} placeholder="Image URL" className="form-control input-lg input1"
@@ -62,8 +63,8 @@ export default class HouseSell extends Component{
           </div>
 
           <div className="container form-group">
-            <input type="text" value = {this.state.location} placeholder="Location" className="form-control input-lg input3"
-              onChange={e=>this.setState({location:e.target.value})}/>
+            <input type="text" value = {this.state.zipcode} placeholder="ZipCode" className="form-control input-lg input3"
+              onChange={e=>this.setState({zipcode:e.target.value})}/>
           </div>
 
           <div className="container form-group">

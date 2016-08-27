@@ -19,8 +19,6 @@ router.route('/')
 
 router.route('/:id')
   .get((req, res) =>{
-  // GET /api/house/dfff98767890987fda
-  // find house by id
     House.findById(req.params.id, (err, house)=>{
       if(err || !house){
         return res.status(400).send(err || 'House not found');
@@ -50,6 +48,16 @@ router.route('/:id')
     })
   })
 
+router.route('/lookup/:zipcode')
+  .get((req, res) => {
+    House.find({zipcode: req.params.zipcode}, (err, houses) => {
+      if(err|| !houses){
+        return res.status(400).send(err || 'House not found');
+      }
+      res.send(houses);
+    });
+  })
+
 router.put('/:houseId/addOwner/:ownerId', (req, res)=>{
   House.findById(req.params.houseId, (err, house)=>{
     if(err || !house){
@@ -64,6 +72,7 @@ router.put('/:houseId/addOwner/:ownerId', (req, res)=>{
     });
   });
 });
+
 
 
 

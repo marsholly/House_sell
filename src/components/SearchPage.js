@@ -1,63 +1,70 @@
 import React, { Component } from 'react';
-import ClientActions from '../actions/ClientActions';
-import ClientList from './ClientList';
-import ClientStore from '../stores/ClientStore';
+import HouseStore from '../stores/HouseStore';
+import BuyerActions from '../actions/BuyerActions';
+import ListHouse from './ListHouse';
 
 
-export default class ClientsPage extends Component {
+export default class SearchPage extends Component {
   constructor(props){
     super();
     this.state = {
-      inputValue: '',
-      clients: []
+      houses: HouseStore.getAll()
     }
-    this.onInputChange = this.onInputChange.bind(this);
-    this.submitForm = this.submitForm.bind(this);
+
     this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
-    ClientActions.getAllClients();
-    ClientStore.startListening(this._onChange);
+    console.log('here');
+    let zipcodeOjb = this.props.params;
+    let zipcode = zipcodeOjb.zipcode;
+    // this.setState({
+    //   params: this.props.params.zipcode
+    // })
+    BuyerActions.lookup(zipcode);
+    HouseStore.startListening(this._onChange);
   }
 
+
   componentWillUnmount() {
-    ClientStore.stopListening(this._onChange);
+    HouseStore.stopListening(this._onChange);
   }
 
   _onChange() {
     this.setState({
-      clients: ClientStore.getAll()
+      houses: HouseStore.getAll()
     });
   }
 
-  onInputChange(e) {
-    let inputValue = e.target.value;
-    this.setState({inputValue});
-  }
-
-  submitForm(e){
-    e.preventDefault();
-    ClientActions.lookup(this.state.inputValue);
-    this.setState({inputValue: ''});
-  }
-
   render(){
-    let {inputValue} = this.state;
-    let {clients} = this.state;
+    let {houses} = this.state;
+    const ListHouses = houses.map(house => {
+      return (
+        <ListHouse key={house._id} {...house} />
+      )
+    })
 
     return(
-      <div className="container">
-        <div className="row">
-          <form onSubmit={this.submitForm}>
-            <div className="col-xs-6 col-xs-offset-3 text-center">
-              <input type="text" value={inputValue} onChange={this.onInputChange} placeholder='E-mail'/>
-              <button className='btn btn-info' type='submit'>Search</button>
-            </div>
-          </form>
-          <ClientList clients={clients} />
-        </div>
+      <div>
+        <div className="container">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Picture</th>
+                <th>Address</th>
+                <th>Sqft</th>
+                <th>Bedroom</th>
+                <th>Bathroom</th>
+                <th>Price</th>
+                <th>Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ListHouses}
+            </tbody>
+          </table>
       </div>
+    </div>
     )
   }
 }

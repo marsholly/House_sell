@@ -18,7 +18,6 @@ h1{
 .input1{
   background-color: #F9EBEA
 }
-
 .input2{
   background-color: #F5EEF8
 }
@@ -36,4 +35,8 @@ h1{
 }
 .input7{
   background-color: #FAD7A0
+}
+
+.pfont{
+  font-size: 26px;
 }
