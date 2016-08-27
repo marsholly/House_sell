@@ -15,13 +15,6 @@ export default class SearchPage extends Component {
   }
 
   componentDidMount() {
-    console.log('here');
-    let zipcodeOjb = this.props.params;
-    let zipcode = zipcodeOjb.zipcode;
-    // this.setState({
-    //   params: this.props.params.zipcode
-    // })
-    BuyerActions.lookup(zipcode);
     HouseStore.startListening(this._onChange);
   }
 

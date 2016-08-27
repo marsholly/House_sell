@@ -15,7 +15,6 @@ const API = {
       .catch(console.error);
   },
   lookup(zipcode){
-    // console.log('zipcode:', zipcode)
     axios.get(`/api/houses/lookup/${zipcode}`)
       .then(res => res.data)
       .then(ServerActions.receiveHouses)
@@ -32,31 +31,10 @@ const API = {
     .then(this.getAllHouses())
   },
 
-
-  getAllAnimals(){
-    axios.get('/api/animals')
-      .then(res => res.data)
-      .then(ServerActions.receiveAnimals)
-      .catch(console.error);
-  },
-  createAnimal(animal) {
-    axios.post('/api/animals', animal)
-      .then(res => res.data)
-      .then(ServerActions.receiveOneAnimal)
-      .catch(console.error);
-  },
-  editAnimal(id, Animal){
-    axios.put(`/api/animals/${id}`,Animal)
-    .then(this.getAllAnimals())
-  },
-  deleteAnimal(id) {
-    axios.delete(`/api/animals/${id}`)
-    .then(this.getAllAnimals())
-  },
-  addOwner(animal_id, owner_id){
-    axios.put(`/api/animals/${animal_id}/addOwner/${owner_id}`)
-      .then(this.getAllAnimals())
-  }
+  // addOwner(animal_id, owner_id){
+  //   axios.put(`/api/animals/${animal_id}/addOwner/${owner_id}`)
+  //     .then(this.getAllAnimals())
+  // }
 }
 
 export default API;

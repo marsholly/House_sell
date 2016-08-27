@@ -8,14 +8,17 @@ export default class Main extends Component {
     super(props);
 
     this.state = {
-      zipcode: ''
+      zipcode: '94588'
     }
 
     this.goToSearch = this.goToSearch.bind(this);
   }
 
-  goToSearch() {
-
+  goToSearch(e) {
+    console.log('goToSearch', Date.now())
+    e.preventDefault();
+    BuyerActions.lookup(this.state.zipcode);
+    browserHistory.push('/buy/search');
   }
 
 
@@ -34,11 +37,11 @@ export default class Main extends Component {
               </button>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <form className="navbar-form navbar-left"  value={this.state.zipcode} onChange={e=>this.setState({zipcode:e.target.value})}>
+              <form className="navbar-form navbar-left" onSubmit={this.goToSearch}>
                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="94566" />
+                  <input type="text" className="form-control" placeholder="94588" value={this.state.zipcode} onChange={e=>this.setState({zipcode:e.target.value})}/>
                 </div>
-                <button type="submit" className="btn btn-default" onClick={this.goToSearch}><Link to={url}>Search</Link></button>
+                <button type="submit" className="btn btn-default">Search</button>
               </form>
               <ul className="nav navbar-nav">
                 <li className="dropdown">

@@ -15,7 +15,7 @@ render(
     <IndexRoute component={Welcome}></IndexRoute>
     <Route path='buy' component={BuyNav}>
       <Route path='allHouse' component={BuyPage}></Route>
-      <Route path='search/:zipcode' component={SearchPage}></Route>
+      <Route path='search' component={SearchPage}></Route>
     </Route>
     <Route path='housesell' component={HouseSell}></Route>
     </Route>
