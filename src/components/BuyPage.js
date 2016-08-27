@@ -46,6 +46,7 @@ export default class BuyPage extends Component {
               <tr>
                 <th>Picture</th>
                 <th>Address</th>
+                <th>Zipcode</th>
                 <th>Sqft</th>
                 <th>Bedroom</th>
                 <th>Bathroom</th>
