@@ -5,8 +5,9 @@ import Welcome from './components/Welcome';
 import BuyNav from './components/BuyNav';
 import SearchPage from './components/SearchPage';
 import Main from './components/Main';
-import HouseSell from  './components/HouseSell'
-import BuyPage from  './components/BuyPage'
+import HouseSell from  './components/HouseSell';
+import BuyPage from  './components/BuyPage';
+import SellNav from './components/SellNav';
 
 
 render(
@@ -17,7 +18,10 @@ render(
       <Route path='allHouse' component={BuyPage}></Route>
       <Route path='search' component={SearchPage}></Route>
     </Route>
-    <Route path='housesell' component={HouseSell}></Route>
+    <Route path='sell' component={SellNav}>
+      <Route path='housesell' component={HouseSell}></Route>
+
+    </Route>
     </Route>
 
   </Router>,
