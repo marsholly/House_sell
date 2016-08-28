@@ -9,8 +9,6 @@ const houseSchema = new mongoose.Schema({
   picture:{type: String, required: true},
   zipcode:{type: Number, required: true},
   buyer:{ type: mongoose.Schema.Types.ObjectId, ref: 'Buyer' }
-  // currentOwner:{ type: mongoose.Schema.Types.ObjectId, ref: 'Person' }
-  // previousOwner:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Person' }]
 });
 
 const House = mongoose.model('House', houseSchema);

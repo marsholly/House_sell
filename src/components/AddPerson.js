@@ -1,5 +1,6 @@
-import React,{Component} from 'react'
-import PersonActions from '../actions/PersonActions'
+import React,{Component} from 'react';
+import PersonActions from '../actions/PersonActions';
+import { browserHistory } from 'react-router';
 
 
 export default class AddPerson extends Component{
@@ -34,16 +35,17 @@ export default class AddPerson extends Component{
     }
 
     PersonActions.createPerson(person);
-      this.setState({'person':''})
-      this.resetForm();
-    }
+    this.setState({'person':''})
+    this.resetForm();
+    browserHistory.push('/sell/viewperson');
+  }
 
   render(){
     let {person} = this.state;
     return (
       <div className ="maindiv">
         <h2 className="text-center"><img width="60px"  src="http://www.2-software.net/site_images/icons/other/register.png"/></h2>
-        <form  className ="formStyle" onSubmit={this.submitPerson}>
+        <form className ="formStyle" onSubmit={this.submitPerson}>
           <div className="container form-group ">
             <input type="text" placeholder="Name" value = {this.state.name} className="form-control input-lg input1"
               onChange={e=>this.setState({name:e.target.value})}/>
@@ -56,7 +58,7 @@ export default class AddPerson extends Component{
             <input type="Number"  placeholder="PhoneNumber" value ={this.state.phoneNum}className="form-control input-lg input3"
              onChange={e=>this.setState({phoneNum:e.target.value})}/>
           </div>
-          <div  className="container form-group text-center">
+          <div className="container form-group text-center">
               <button id = "prsnsbtid" type="submit"  className="btn btn-primary btn-lg">Submit</button>
           </div>
           </form>

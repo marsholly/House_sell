@@ -20,12 +20,6 @@ router.route('/')
     });
   });
 
-// router.route('/email/:www')
-// .get((req, res) => {
-//   Buyer.findOne({email: req.params.www}, (err, buyer) => {
-//     res.status(err ? 400 : 200).send(err || buyer);
-//   });
-// })
 
 router.route('/:id')
   .get((req, res) => {

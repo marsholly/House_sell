@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BuyerActions from '../actions/BuyerActions';
 import numeral from 'numeral';
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 
 export default class SellList extends Component {
   constructor(props){
