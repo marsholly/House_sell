@@ -47,8 +47,8 @@ export default class SearchPage extends Component {
                 <th>Address</th>
                 <th>Zipcode</th>
                 <th>Sqft</th>
-                <th>Bedroom</th>
-                <th>Bathroom</th>
+                <th>Beds</th>
+                <th>Baths</th>
                 <th>Price</th>
                 <th>Order</th>
               </tr>

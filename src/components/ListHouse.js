@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import BuyerActions from '../actions/BuyerActions'
+import BuyerActions from '../actions/BuyerActions';
+import numeral from 'numeral';
 
 export default class ListHouse extends Component {
   constructor(props){
@@ -61,6 +62,7 @@ export default class ListHouse extends Component {
   }
   render() {
     let { _id, address, sqft, beds, baths, picture, price, zipcode }  = this.props;
+    let priceStr = numeral(price).format('0,0');
     if(this.state.editing){
       return (
         <tr>
@@ -90,7 +92,7 @@ export default class ListHouse extends Component {
             <td>{sqft}</td>
             <td>{beds}</td>
             <td>{baths}</td>
-            <td>${price}</td>
+            <td>${priceStr}</td>
             <td>
               <button className="btn btn-danger btn-xs" onClick={() => this.orderHouse(_id)}>
                 <span className="glyphicon glyphicon-tag"></span>
