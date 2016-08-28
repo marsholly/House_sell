@@ -90,6 +90,21 @@ router.route('/lookup/bed/:low/:high')
   })
 
 
+// router.route('/lookup/bed/:low/:high')
+//   .get((req, res) => {
+//     House.find({beds: {$gte: req.params.low, $lte: req.params.high}}, (err, houses)=>{
+//       if(err|| !houses){
+//         return res.status(400).send(err || 'House not found');
+//       }
+//       .get((req,res) =>{
+//         House.find({buyer : {$exists : false} },(err, houses) => {
+//           res.status(err ? 400 : 200).send( err || houses);
+//         })
+//       res.send(houses);
+//     });
+//   })
+
+
   router.put('/:houseId/addBuyer/:buyerId', (req, res)=>{
     House.findById(req.params.houseId, (err, house)=>{
       if(err || !house){

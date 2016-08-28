@@ -65,7 +65,7 @@ const API = {
       .then(ServerActions.receiveOneHouse)
       .catch(console.error)
   },
-  petWithoutOwner(){
+  houseWithoutOwner(){
     axios.get('/api/houses/houseWithoutOwner')
       .then(res=>res.data)
       .then(ServerActions.receiveHousesWithoutOwner)

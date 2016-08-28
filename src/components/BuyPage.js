@@ -9,14 +9,14 @@ export default class BuyPage extends Component {
     super(props);
 
     this.state = {
-      houses: HouseStore.getAll()
+      houses: []
     }
 
     this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
-    BuyerActions.getAllHouses();
+    BuyerActions.houseWithoutOwner();
     HouseStore.startListening(this._onChange);
   }
 
@@ -26,7 +26,7 @@ export default class BuyPage extends Component {
 
   _onChange() {
     this.setState({
-      houses: HouseStore.getAll()
+      houses: HouseStore.getWithoutOwnerHouses()
     });
   }
 

@@ -19,7 +19,7 @@ export default class SoldList extends Component {
       )
     }
     else{
-      return (<div></div>)
+      return (<tr></tr>)
     }
   }
 }

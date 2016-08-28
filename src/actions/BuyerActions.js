@@ -2,6 +2,7 @@ import API from '../API';
 
 const BuyerActions = {
   getAllHouses: API.getAllHouses,
+  houseWithoutOwner: API.houseWithoutOwner,
   createHouse(house) {
     API.createHouse(house);
   },

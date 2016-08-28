@@ -8,13 +8,14 @@ export default class SearchPage extends Component {
   constructor(props){
     super();
     this.state = {
-      houses: HouseStore.getAll()
+      houses: []
     }
 
     this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
+    BuyerActions.getAllHouses();
     HouseStore.startListening(this._onChange);
   }
 
