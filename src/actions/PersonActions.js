@@ -6,13 +6,14 @@ const PersonActions = {
 
   createPerson(person) {
     API.createPerson(person);
-    API.getAllPeople();
   },
+
   deletePerson(id) {
     API.deletePerson(id);
   },
-  addOwner(houseid, buyerid){
-    API.addOwner(houseid, buyerid);
+
+  addOwner(houseId, buyerId){
+    API.addOwner(houseId, buyerId);
   }
 }
 

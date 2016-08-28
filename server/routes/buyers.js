@@ -14,7 +14,9 @@ router.route('/')
       if(err){
         return res.status(400).send(err);
       }
-      res.send(buyer)
+      Buyer.find({}, (err, buyers)=>{
+        res.status(err ? 400 :200).send(err || buyers);
+      });
     });
   });
 

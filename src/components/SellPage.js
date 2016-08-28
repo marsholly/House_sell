@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HouseStore from '../stores/HouseStore';
-import SellHouseList from './SellHouseList';
+import SellList from './SellList';
 import BuyerActions from '../actions/BuyerActions';
 
 
@@ -32,31 +32,31 @@ export default class SellPage extends Component {
 
   render() {
     let {houses} = this.state;
-    const SellHouseList = houses.map(house => {
+    const listHouses = houses.map(house => {
       return (
-        <SellHouseList key={house._id} {...house} />
+        <SellList key={house._id} {...house} />
       )
     })
 
     return (
-        <div className="container">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Picture</th>
-                <th>Address</th>
-                <th>Zipcode</th>
-                <th>Sqft</th>
-                <th>Beds</th>
-                <th>Baths</th>
-                <th>Price</th>
-                <th>Order</th>
-              </tr>
-            </thead>
-            <tbody>
-              {SellHouseList}
-            </tbody>
-          </table>
+      <div className="container">
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Address</th>
+              <th>Zipcode</th>
+              <th>Sqft</th>
+              <th>Beds</th>
+              <th>Baths</th>
+              <th>Price</th>
+              <th>Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listHouses}
+          </tbody>
+        </table>
       </div>
     )
   }

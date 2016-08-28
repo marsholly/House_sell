@@ -9,7 +9,7 @@ export default class ViewPerson extends Component {
     super(props);
 
     this.state = {
-      people: PersonStore.getAll()
+      people: []
     }
 
     this._onChange = this._onChange.bind(this);
@@ -31,11 +31,11 @@ export default class ViewPerson extends Component {
   }
 
   render() {
-    // console.log('this.props.location.query.houseid:', this.props.location.query.houseId)
-    let {people} = this.state;
-    const PersonLists = people.map(person => {
+    let houseId = this.props.location.query.houseId;
+    let { people } = this.state;
+    const personLists = people.map(person => {
       return (
-        <PersonList key={person._id} {...person} />
+        <PersonList key={person._id} {...person} houseId={houseId} />
       )
     })
 
@@ -47,10 +47,11 @@ export default class ViewPerson extends Component {
               <th>Name</th>
               <th>Email</th>
               <th>PhoneNumber</th>
+              <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {PersonLists}
+              { personLists }
             </tbody>
           </table>
       </div>

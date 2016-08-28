@@ -1,21 +1,21 @@
 import React , {Component} from 'react';
 import PersonActions from '../actions/PersonActions';
 import ServerActions from '../actions/ServerActions';
-// import {browserHistory} from 'react-router'
+import { browserHistory } from 'react-router'
 
 export default class PersonList extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.deletePerson=this.deletePerson.bind(this);
   }
 
-  deletePerson(e){
-     PersonActions.deletePerson(e.target.id);
+  deletePerson(id){
+     PersonActions.deletePerson(id);
   }
 
-  select(houseId, buyerid){
-    PersonActions.addOwner(houseId, buyerid);
-    // browserHistory.push('/AdoptedPets')
+  select(houseId, buyerId){
+    PersonActions.addOwner(houseId, buyerId);
+    browserHistory.push('/sell/soldHouse');
 
   }
 
@@ -28,7 +28,7 @@ export default class PersonList extends Component{
         <td>{phoneNum}</td>
         <td>
           <button id = {_id} onClick={this.select.bind(null,houseId,_id)} className ="btn btn-success">Select</button>
-          <button id = {_id} onClick={this.deletePerson} className ="btn btn-danger">Delete</button>
+          <button id = {_id} onClick={()=>this.deletePerson(_id)} className ="btn btn-danger">Delete</button>
         </td>
       </tr>
     )

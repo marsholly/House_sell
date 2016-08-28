@@ -8,27 +8,28 @@ import Main from './components/Main';
 import HouseSell from  './components/HouseSell';
 import BuyPage from  './components/BuyPage';
 import SellNav from './components/SellNav';
-import AddPerson from './components/AddPerson'
-import ViewPerson from './components/ViewPerson'
-// import SellPage from  './components/SellPage';
+import AddPerson from './components/AddPerson';
+import ViewPerson from './components/ViewPerson';
+import HousesPurchase from './components/HousesPurchase';
+import SellPage from  './components/SellPage';
 
 
 render(
   <Router history={browserHistory}>
     <Route path='/' component={Main}>
-    <IndexRoute component={Welcome}></IndexRoute>
-    <Route path='buy' component={BuyNav}>
-      <Route path='allHouse' component={BuyPage}></Route>
-      <Route path='search' component={SearchPage}></Route>
+      <IndexRoute component={Welcome}></IndexRoute>
+      <Route path='buy' component={BuyNav}>
+        <Route path='allHouse' component={BuyPage}></Route>
+        <Route path='search' component={SearchPage}></Route>
+      </Route>
+      <Route path='sell' component={SellNav}>
+        <Route path='sellPage' component={SellPage}></Route>
+        <Route path='housesell' component={HouseSell}></Route>
+        <Route path='addperson' component={AddPerson}></Route>
+        <Route path='viewperson' component={ViewPerson}></Route>
+        <Route path='soldHouse' component={HousesPurchase}></Route>
+      </Route>
     </Route>
-    <Route path='sell' component={SellNav}>
-      <Route path='housesell' component={HouseSell}></Route>
-      <Route path='addperson' component={AddPerson}></Route>
-      <Route path='viewperson' component={ViewPerson}></Route>
-      <Route path='allHouse' component={BuyPage}></Route>
-    </Route>
-    </Route>
-
   </Router>,
   document.getElementById('root')
 );

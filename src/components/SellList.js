@@ -3,7 +3,7 @@ import BuyerActions from '../actions/BuyerActions';
 import numeral from 'numeral';
 import { browserHistory } from 'react-router';
 
-export default class ListHouse extends Component {
+export default class SellList extends Component {
   constructor(props){
     super(props);
 
@@ -18,7 +18,6 @@ export default class ListHouse extends Component {
       editPrice:''
     }
 
-    this.orderHouse = this.orderHouse.bind(this);
     this.editHouse=this.editHouse.bind(this);
     this.saveMe=this.saveMe.bind(this);
     this.deleteHouse=this.deleteHouse.bind(this);
@@ -54,13 +53,7 @@ export default class ListHouse extends Component {
   }
 
   deleteHouse(id){
-
     BuyerActions.deleteHouse(id);
-  }
-
-  orderHouse(id){
-    console.log('id:', id)
-    browserHistory.push({pathname:'/sell/viewperson', query:{ houseId :id}});
   }
 
   render() {
@@ -97,9 +90,6 @@ export default class ListHouse extends Component {
             <td>{baths}</td>
             <td>${priceStr}</td>
             <td>
-              <button className="btn btn-danger btn-xs" onClick={() => this.orderHouse(_id)}>
-                <span className="glyphicon glyphicon-tag"></span>
-              </button>
               <button id = {_id} className="btn btn-primary btn-xs" onClick={()=>this.editHouse(_id)}>
                 <span className="glyphicon glyphicon-pencil"></span>
               </button>

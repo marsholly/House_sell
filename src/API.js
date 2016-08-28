@@ -46,7 +46,7 @@ const API = {
   createPerson(person){
    axios.post('/api/buyers', person)
         .then(res=>res.data)
-        .then(PersonServerActions.receiveOnePerson)
+        .then(PersonServerActions.receiveAllPeople)
         .catch(console.error)
   },
    getAllPeople(){
@@ -56,12 +56,19 @@ const API = {
         .catch(console.error)
   },
   deletePerson(id){
-    axios.delete(`api/buyers/${id}`)
-    .then(PersonServerActions.receiveAllPeople)
-    .catch(console.error)
+    axios.delete(`/api/buyers/${id}`)
+      .then(this.getAllPeople())
   },
-  addOwner(houseid, buyerid){
-    axios.put(`api/houses/${houseid}/addBuyer/${buyerid}`)
+  addOwner(houseId, buyerId){
+    axios.put(`/api/houses/${houseId}/addBuyer/${buyerId}`)
+      .then(res=>res.data)
+      .then(ServerActions.receiveOneHouse)
+      .catch(console.error)
+  },
+  petWithoutOwner(){
+    axios.get('/api/houses/houseWithoutOwner')
+      .then(res=>res.data)
+      .then(ServerActions.receiveHousesWithoutOwner)
       .catch(console.error)
   }
 }

@@ -11,11 +11,11 @@ export default class SellNav extends Component {
           <div className="container-fluid">
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><Link to="/sell/allHouse">All Houses</Link></li>
+                <li><Link to="/sell/sellPage">All Houses</Link></li>
                 <li><Link to="/sell/housesell">Sell House</Link></li>
                 <li><Link to="/sell/addperson">Add Person</Link></li>
                 <li><Link to="/sell/viewperson">View Person</Link></li>
-                <li><Link to="/sell">New Purchase</Link></li>
+                <li><Link to="/sell/soldHouse">New Purchase</Link></li>
               </ul>
             </div>
           </div>

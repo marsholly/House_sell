@@ -12,6 +12,12 @@ const ServerActions = {
       type: 'RECEIVE_ONE_HOUSE',
       house
     })
+  },
+  receiveHousesWithoutOwner(houses){
+    AppDispatcher.dispatch({
+      type:'HOUSES_WITHOUT_OWNER',
+      houses
+    })
   }
 }
 

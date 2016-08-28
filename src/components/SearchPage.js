@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HouseStore from '../stores/HouseStore';
 import BuyerActions from '../actions/BuyerActions';
-import ListHouse from './ListHouse';
+import HouseList from './HouseList';
 
 
 export default class SearchPage extends Component {
@@ -31,9 +31,9 @@ export default class SearchPage extends Component {
 
   render(){
     let {houses} = this.state;
-    const ListHouses = houses.map(house => {
+    const listHouses = houses.map(house => {
       return (
-        <ListHouse key={house._id} {...house} />
+        <HouseList key={house._id} {...house} />
       )
     })
 
@@ -54,7 +54,7 @@ export default class SearchPage extends Component {
               </tr>
             </thead>
             <tbody>
-              {ListHouses}
+              {listHouses}
             </tbody>
           </table>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HouseStore from '../stores/HouseStore';
-import ListHouse from './ListHouse';
+import HouseList from './HouseList';
 import BuyerActions from '../actions/BuyerActions';
 
 
@@ -32,9 +32,9 @@ export default class BuyPage extends Component {
 
   render() {
     let {houses} = this.state;
-    const ListHouses = houses.map(house => {
+    const listHouses = houses.map(house => {
       return (
-        <ListHouse key={house._id} {...house} />
+        <HouseList key={house._id} {...house} />
       )
     })
 
@@ -50,11 +50,11 @@ export default class BuyPage extends Component {
                 <th>Beds</th>
                 <th>Baths</th>
                 <th>Price</th>
-                <th>Order</th>
+                <th>Buy</th>
               </tr>
             </thead>
             <tbody>
-              {ListHouses}
+              {listHouses}
             </tbody>
           </table>
       </div>

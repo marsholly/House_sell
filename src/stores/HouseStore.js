@@ -1,8 +1,8 @@
 import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
 
-
 let _houses = [];
+let _withoutOwnerHouses = [];
 
 class HouseStore extends EventEmitter {
   constructor(){
@@ -17,6 +17,10 @@ class HouseStore extends EventEmitter {
         case 'RECEIVE_ONE_HOUSE':
           var { house } = action;
           _houses.push(house);
+          this.emit('CHANGE');
+          break;
+        case 'HOUSES_WITHOUT_OWNER':
+          _withoutOwnerHouses = action.houses;
           this.emit('CHANGE');
           break;
       }
@@ -34,6 +38,11 @@ class HouseStore extends EventEmitter {
   getAll() {
     return _houses;
   }
+
+  getWithoutOwnerHouses(){
+    return _withoutOwnerHouses;
+  }
+
 }
 
 export default new HouseStore();

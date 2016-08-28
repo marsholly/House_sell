@@ -17,6 +17,13 @@ router.route('/')
     });
   });
 
+router.route('/houseWithoutOwner')
+  .get((req,res) =>{
+    House.find({buyer : {$exists : false} },(err, houses) => {
+      res.status(err ? 400 : 200).send( err || houses);
+    })
+  });
+
 router.route('/:id')
   .get((req, res) =>{
     House.findById(req.params.id, (err, house)=>{
@@ -85,7 +92,6 @@ router.route('/lookup/bed/:low/:high')
 
   router.put('/:houseId/addBuyer/:buyerId', (req, res)=>{
     House.findById(req.params.houseId, (err, house)=>{
-      console.log('house:', house)
       if(err || !house){
         return res.status(400).send(err || 'House not found');
       }
@@ -96,10 +102,5 @@ router.route('/lookup/bed/:low/:high')
       });
     })
   })
-
-
-
-
-
 
 module.exports = router;
