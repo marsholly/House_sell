@@ -6,7 +6,7 @@ router.route('/')
   .get((req, res)=>{
     House.find({}, (err, houses)=>{
       res.status(err ? 400 :200).send(err || houses);
-    }).populate('owner')
+    }).populate('buyer')
   })
   .post((req, res)=>{
     House.create(req.body, (err, house)=>{
@@ -24,7 +24,7 @@ router.route('/:id')
         return res.status(400).send(err || 'House not found');
       }
       res.send(house);
-    }).populate('owner')
+    }).populate('buyer')
   })
   .delete((req, res) => {
     House.findByIdAndRemove(req.params.id, err => {
@@ -34,7 +34,7 @@ router.route('/:id')
       House.find({}, (err, houses) =>{
         res.status(err? 400 : 200).send(err || houses);
       })
-    }).populate('owner')
+    }).populate('buyer')
   })
   .put((req, res) => {
     House.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, (err, house) => {
@@ -44,7 +44,7 @@ router.route('/:id')
       // else { house.save(); }
       House.find({}, (err,houses) =>{
         res.status(err ? 400 : 200).send(err || houses);
-      }).populate('owner')
+      }).populate('buyer')
     })
   })
 
@@ -83,20 +83,19 @@ router.route('/lookup/bed/:low/:high')
   })
 
 
-router.put('/:houseId/addOwner/:ownerId', (req, res)=>{
-  House.findById(req.params.houseId, (err, house)=>{
-    if(err || !house){
-      return res.status(400).send(err || 'House not found');
-    }
-
-    let ownerId = req.params.ownerId;
-
-    house.owner = ownerId;
-    house.save((err, savedHouse)=>{
-      res.status(err ? 400 :200).send(err || savedHouse);
-    });
-  });
-});
+  router.put('/:houseId/addBuyer/:buyerId', (req, res)=>{
+    House.findById(req.params.houseId, (err, house)=>{
+      console.log('house:', house)
+      if(err || !house){
+        return res.status(400).send(err || 'House not found');
+      }
+      let buyerId = req.params.buyerId;
+      house.buyer = buyerId;
+      house.save((err, savedHouse)=>{
+        res.status(err ? 400 :200).send(err || savedHouse);
+      });
+    })
+  })
 
 
 

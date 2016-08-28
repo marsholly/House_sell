@@ -1,5 +1,6 @@
 import axios from 'axios';
 import ServerActions from './actions/ServerActions';
+import PersonServerActions from './actions/PersonServerActions';
 
 const API = {
   getAllHouses(){
@@ -42,11 +43,27 @@ const API = {
     axios.delete(`/api/houses/${id}`)
     .then(this.getAllHouses())
   },
-
-  // addOwner(animal_id, owner_id){
-  //   axios.put(`/api/animals/${animal_id}/addOwner/${owner_id}`)
-  //     .then(this.getAllAnimals())
-  // }
+  createPerson(person){
+   axios.post('/api/buyers', person)
+        .then(res=>res.data)
+        .then(PersonServerActions.receiveOnePerson)
+        .catch(console.error)
+  },
+   getAllPeople(){
+     axios.get('/api/buyers')
+        .then(res=>res.data)
+        .then(PersonServerActions.receiveAllPeople)
+        .catch(console.error)
+  },
+  deletePerson(id){
+    axios.delete(`api/buyers/${id}`)
+    .then(PersonServerActions.receiveAllPeople)
+    .catch(console.error)
+  },
+  addOwner(houseid, buyerid){
+    axios.put(`api/houses/${houseid}/addBuyer/${buyerid}`)
+      .catch(console.error)
+  }
 }
 
 export default API;

@@ -19,10 +19,6 @@ class HouseStore extends EventEmitter {
           _houses.push(house);
           this.emit('CHANGE');
           break;
-        // case 'RECEIVE_LOOKUP_HOUSES':
-        //   _houses = action.houses;
-        //   this.emit('CHANGE');
-        //   break;
       }
     })
   }

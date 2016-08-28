@@ -12,19 +12,7 @@ const ServerActions = {
       type: 'RECEIVE_ONE_HOUSE',
       house
     })
-  },
-  // receiveAnimals(animals) {
-  //   AppDispatcher.dispatch({
-  //     type: 'RECEIVE_ANIMALS',
-  //     animals
-  //   })
-  // },
-  // receiveOneAnimal(animal) {
-  //   AppDispatcher.dispatch({
-  //     type: 'RECEIVE_ONE_ANIMAL',
-  //     animal
-  //   })
-  // }
+  }
 }
 
 export default ServerActions;

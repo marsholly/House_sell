@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import BuyerActions from '../actions/BuyerActions';
 import numeral from 'numeral';
-import { browserHistory } from 'react-router';
 
-export default class ListHouse extends Component {
+export default class SellHouseList extends Component {
   constructor(props){
     super(props);
 
@@ -59,10 +58,8 @@ export default class ListHouse extends Component {
   }
 
   orderHouse(id){
-    console.log('id:', id)
-    browserHistory.push({pathname:'/sell/viewperson', query:{ houseId :id}});
-  }
 
+  }
   render() {
     let { _id, address, sqft, beds, baths, picture, price, zipcode }  = this.props;
     let priceStr = numeral(price).format('0,0');

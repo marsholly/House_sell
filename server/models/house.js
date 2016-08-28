@@ -8,7 +8,7 @@ const houseSchema = new mongoose.Schema({
   price:{type: Number, required: true},
   picture:{type: String, required: true},
   zipcode:{type: Number, required: true},
-  buyer:{ type: mongoose.Schema.Types.ObjectId, ref: 'Person' }
+  buyer:{ type: mongoose.Schema.Types.ObjectId, ref: 'Buyer' }
   // currentOwner:{ type: mongoose.Schema.Types.ObjectId, ref: 'Person' }
   // previousOwner:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Person' }]
 });

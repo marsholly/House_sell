@@ -8,6 +8,9 @@ import Main from './components/Main';
 import HouseSell from  './components/HouseSell';
 import BuyPage from  './components/BuyPage';
 import SellNav from './components/SellNav';
+import AddPerson from './components/AddPerson'
+import ViewPerson from './components/ViewPerson'
+// import SellPage from  './components/SellPage';
 
 
 render(
@@ -20,12 +23,12 @@ render(
     </Route>
     <Route path='sell' component={SellNav}>
       <Route path='housesell' component={HouseSell}></Route>
+      <Route path='addperson' component={AddPerson}></Route>
+      <Route path='viewperson' component={ViewPerson}></Route>
+      <Route path='allHouse' component={BuyPage}></Route>
     </Route>
     </Route>
 
   </Router>,
   document.getElementById('root')
 );
-
-
-// <Route path='price' component={PricePage}></Route>
