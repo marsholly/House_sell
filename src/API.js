@@ -1,6 +1,8 @@
 import axios from 'axios';
 import ServerActions from './actions/ServerActions';
 import PersonServerActions from './actions/PersonServerActions';
+import AdminActions from './actions/AdminActions';
+import RouteActions from './actions/RouteActions';
 
 const API = {
   getAllHouses(){
@@ -49,11 +51,11 @@ const API = {
         .then(PersonServerActions.receiveAllPeople)
         .catch(console.error)
   },
-   getAllPeople(){
-     axios.get('/api/buyers')
-        .then(res=>res.data)
-        .then(PersonServerActions.receiveAllPeople)
-        .catch(console.error)
+  getAllPeople(){
+    axios.get('/api/buyers')
+      .then(res=>res.data)
+      .then(PersonServerActions.receiveAllPeople)
+      .catch(console.error)
   },
   deletePerson(id){
     axios.delete(`/api/buyers/${id}`)
@@ -62,13 +64,32 @@ const API = {
   addOwner(houseId, buyerId){
     axios.put(`/api/houses/${houseId}/addBuyer/${buyerId}`)
       .then(res=>res.data)
-      .then(ServerActions.receiveOneHouse)
+      .then(ServerActions.receiveHouses)
       .catch(console.error)
   },
   houseWithoutOwner(){
     axios.get('/api/houses/houseWithoutOwner')
       .then(res=>res.data)
       .then(ServerActions.receiveHousesWithoutOwner)
+      .catch(console.error)
+  },
+  login(user) {
+    axios.post('/api/users/login', user)
+      .then(() => {
+        AdminActions.getAdmin()
+        RouteActions.route('/sell/sellPage');
+      })
+      .catch(console.error)
+  },
+  logout(){
+    axios.post('/api/users/logout')
+      .then(ServerActions.removeAdmin)
+      .catch(console.error)
+  },
+  getAdmin(){
+    axios.get('/api/users/manage')
+      .then(res => res.data)
+      .then(ServerActions.receiveAdmin)
       .catch(console.error)
   }
 }

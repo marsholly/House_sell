@@ -19,18 +19,18 @@ export default class HouseSell extends Component{
   }
 
    resetForm(){
-    this.setState({ address:'',
-                    sqft:'',
-                    baths:'',
-                    beds:'',
-                    price:'',
-                    zipcode:'',
-                    picture:''});
+    this.setState({
+      address:'',
+      sqft:'',
+      baths:'',
+      beds:'',
+      price:'',
+      zipcode:'',
+      picture:''});
   }
 
 
   submitHouse(e){
-    console.log("inside submit House")
     e.preventDefault();
     let house ={
       address:this.state.address,
@@ -41,11 +41,10 @@ export default class HouseSell extends Component{
       zipcode:this.state.zipcode,
       picture:this.state.picture
     }
-    console.log(house,{house});
     BuyerActions.createHouse(house)
     this.setState({house:''});
     this.resetForm();
-    browserHistory.push('/buy/allHouse')
+    browserHistory.push('/buy/allHouse');
   }
 
   render(){

@@ -12,6 +12,9 @@ import AddPerson from './components/AddPerson';
 import ViewPerson from './components/ViewPerson';
 import HousesPurchase from './components/HousesPurchase';
 import SellPage from  './components/SellPage';
+import LoginForm from './components/LoginForm';
+import ViewPersonForAdmin from './components/ViewPersonForAdmin';
+
 
 
 render(
@@ -28,7 +31,9 @@ render(
         <Route path='addperson' component={AddPerson}></Route>
         <Route path='viewperson' component={ViewPerson}></Route>
         <Route path='soldHouse' component={HousesPurchase}></Route>
+        <Route path='adminperson' component={ViewPersonForAdmin}></Route>
       </Route>
+      <Route path='login' component={LoginForm}></Route>
     </Route>
   </Router>,
   document.getElementById('root')

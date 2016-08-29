@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PersonStore from '../stores/PersonStore';
 import PersonList from './PersonList';
 import PersonActions from '../actions/PersonActions';
+import PersonListForAdmin from './PersonListForAdmin';
 
 
-export default class ViewPerson extends Component {
+export default class ViewPersonForAdmin extends Component {
   constructor(props){
     super(props);
 
@@ -34,11 +35,11 @@ export default class ViewPerson extends Component {
     let houseId = this.props.location.query.houseId;
     let people = this.state.people;
     let personLists;
-      personLists = people.map(person => {
-        return (
-          <PersonList key={person._id} {...person} houseId={houseId} />
-        )
-      })
+    personLists = people.map(person => {
+      return (
+        <PersonListForAdmin key={person._id} {...person} houseId={houseId} />
+      )
+    })
 
     return (
         <div className="container">

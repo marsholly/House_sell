@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import HouseStore from '../stores/HouseStore'
-import BuyerActions from '../actions/BuyerActions'
-import SoldList from './SoldList'
+import React, { Component } from 'react';
+import HouseStore from '../stores/HouseStore';
+import BuyerActions from '../actions/BuyerActions';
+import SoldList from './SoldList';
 
 export default class HousesPurchase extends Component{
-
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       houses: HouseStore.getAll()
     }
@@ -29,7 +28,9 @@ export default class HousesPurchase extends Component{
   }
 
   render(){
-   const soldList  = this.state.houses.map( house => {
+   let {houses} = this.state;
+
+    const soldList  = houses.map( house => {
       return (
         <SoldList key = {house._id} {...house}/>
       )

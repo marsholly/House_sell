@@ -9,8 +9,10 @@ export default class Welcome extends Component {
       <div className="container">
         <div className="row">
           <Jumbotron>
-            <h2 className="text-center">Find your way home</h2>
-            <img id='mainPic' src="http://www.tessituraguenzani.com/images/house-design-interior-and-exterior-two-story-traditional-house-plans.jpg" alt="bear"/>
+            <h1 className="text-center">Find your way home</h1>
+              <p className="text-center">
+                <img className="mainPic" src="http://www.tessituraguenzani.com/images/house-design-interior-and-exterior-two-story-traditional-house-plans.jpg"/>
+              </p>
           </Jumbotron>
         </div>
       </div>

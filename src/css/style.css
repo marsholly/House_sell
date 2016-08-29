@@ -1,10 +1,18 @@
-#mainPic{
-  width: 100%;
-  higth: 200px;;
+.mainPic{
+  height: 100%;
+  width: 72%;
+  border-radius: 10px;
 }
 
+.jumbotron {
+    background-color: #BBDEFB !important;
+    font-family: cursive;
+    font-weight: bolder;
+}
+
+
 h1{
-  margin-top: -40px;
+  margin-top: 0px;
 }
 
 .trFont{

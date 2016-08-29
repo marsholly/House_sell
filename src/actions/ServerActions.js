@@ -18,6 +18,17 @@ const ServerActions = {
       type:'HOUSES_WITHOUT_OWNER',
       houses
     })
+  },
+  receiveAdmin(admin){
+    AppDispatcher.dispatch({
+      type:'RECEIVE_ADMIN',
+      admin
+    })
+  },
+  removeAdmin(admin){
+    AppDispatcher.dispatch({
+      type: 'REMOVE_ADMIN',
+    })
   }
 }
 
