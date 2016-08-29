@@ -26,19 +26,18 @@ export default class ViewPerson extends Component {
 
   _onChange() {
     this.setState({
-      people: PersonStore.getAll(),
+      people: PersonStore.getAll()
     });
   }
 
   render() {
     let houseId = this.props.location.query.houseId;
-    let people = this.state.people;
-    let personLists;
-      personLists = people.map(person => {
-        return (
-          <PersonList key={person._id} {...person} houseId={houseId} />
-        )
-      })
+    let { people } = this.state;
+    const personLists = people.map(person => {
+      return (
+        <PersonList key={person._id} {...person} houseId={houseId} />
+      )
+    })
 
     return (
         <div className="container">

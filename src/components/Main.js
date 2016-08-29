@@ -23,7 +23,7 @@ export default class Main extends Component {
               <ul className="nav navbar-nav navbar-right">
                 <li><Link to='/'>HOME</Link></li>
                 <li><Link to='/buy/allHouse'>BUY</Link></li>
-                <li><Link to='/sell/sellPage'>SELL</Link></li>
+                <li><Link to='/sell/soldHouse'>SELL</Link></li>
               </ul>
             </div>
           </div>

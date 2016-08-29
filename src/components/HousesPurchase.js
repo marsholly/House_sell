@@ -7,7 +7,7 @@ export default class HousesPurchase extends Component{
   constructor(props){
     super(props);
     this.state = {
-      houses: HouseStore.getAll()
+      houses: []
     }
     this._onChange = this._onChange.bind(this);
   }
@@ -28,8 +28,8 @@ export default class HousesPurchase extends Component{
   }
 
   render(){
-   let {houses} = this.state;
-
+   let houses = this.state.houses;
+console.log('houses in here:', houses)
     const soldList  = houses.map( house => {
       return (
         <SoldList key = {house._id} {...house}/>

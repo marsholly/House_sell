@@ -63,8 +63,9 @@ const API = {
   },
   addOwner(houseId, buyerId){
     axios.put(`/api/houses/${houseId}/addBuyer/${buyerId}`)
-      .then(res=>res.data)
-      .then(ServerActions.receiveHouses)
+      .then(()=>{
+        this.getAllHouses()
+      })
       .catch(console.error)
   },
   houseWithoutOwner(){

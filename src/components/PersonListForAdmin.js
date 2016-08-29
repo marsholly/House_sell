@@ -14,7 +14,7 @@ export default class PersonListForAdmin extends Component{
   }
 
   render(){
-    let {_id,name,email,phoneNum,houseId}=this.props;
+    let {_id,name,email,phoneNum}=this.props;
     return(
       <tr key={_id}>
         <td>{name}</td>

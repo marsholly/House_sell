@@ -32,12 +32,11 @@ export default class ViewPersonForAdmin extends Component {
   }
 
   render() {
-    let houseId = this.props.location.query.houseId;
     let people = this.state.people;
     let personLists;
     personLists = people.map(person => {
       return (
-        <PersonListForAdmin key={person._id} {...person} houseId={houseId} />
+        <PersonListForAdmin key={person._id} {...person} />
       )
     })
 
